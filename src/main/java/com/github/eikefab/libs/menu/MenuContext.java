@@ -14,7 +14,7 @@ public class MenuContext {
     private final Map<Integer, MenuItem> items;
     private final Map<String, Object> data;
 
-    public MenuContext(Menu menu, Map<String, Object> data) {
+    protected MenuContext(Menu menu, Map<String, Object> data) {
         this.items = new HashMap<>();
         this.data = data;
         this.menu = menu;
@@ -48,6 +48,14 @@ public class MenuContext {
 
     public Object get(String key) {
         return data.getOrDefault(key, null);
+    }
+
+    public Map<String, Object> getData() {
+        return data;
+    }
+
+    public Map<Integer, MenuItem> getItems() {
+        return items;
     }
 
 }

@@ -15,9 +15,17 @@ public class HelloMenuCommand implements CommandExecutor {
         if (!(sender instanceof Player)) return false;
 
         final Player player = (Player) sender;
-        final HelloMenu menu = new HelloMenu();
 
-        menu.open(player, ImmutableMap.of("times", times++));
+        if (args.length == 0 || !args[0].equalsIgnoreCase("page")) {
+            final HelloMenu menu = new HelloMenu();
+
+            menu.open(player, ImmutableMap.of("times", ++times));
+        } else {
+            final HelloPageMenu menu = new HelloPageMenu();
+
+            menu.open(player);
+        }
+
 
         return false;
     }

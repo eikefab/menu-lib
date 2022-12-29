@@ -27,6 +27,18 @@ public abstract class Menu {
 
     protected abstract void build(Player player, MenuContext context);
 
+    protected void fillBorders(MenuItem item, MenuContext context) {
+        for (int slot = 0; slot < size; slot++) {
+            if (slot >= 10 && slot <= 43 && (!isBorder(slot))) continue;
+
+            context.add(slot, item);
+        }
+    }
+
+    protected boolean isBorder(int slot) {
+        return slot % 9 == 0 || (slot + 1) % 9 == 0;
+    }
+
     public void open(Player player, Map<String, Object> data) {
         final MenuContext context = new MenuContext(this, data);
         final Inventory inventory = create(context);

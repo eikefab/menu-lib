@@ -3,7 +3,7 @@ package com.github.eikefab.libs.menu;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.InventoryHolder;
 
-public class MenuHolder implements InventoryHolder {
+class MenuHolder implements InventoryHolder {
 
     private final MenuContext context;
 
