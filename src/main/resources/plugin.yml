@@ -1,0 +1,6 @@
+name: MenuLibPlugin
+version: 1.0.0
+author: eikefab
+main: com.github.eikefab.libs.menu.plugin.MenuLibPlugin
+commands:
+  hellomenu:
