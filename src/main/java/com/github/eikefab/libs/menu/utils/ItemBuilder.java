@@ -7,6 +7,7 @@ import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
@@ -56,7 +57,7 @@ public final class ItemBuilder {
     }
 
     public ItemBuilder lore(String... lore) {
-        return lore(List.of(lore));
+        return lore(Arrays.asList(lore));
     }
 
     public ItemBuilder flag(ItemFlag... flags) {
