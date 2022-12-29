@@ -1,7 +1,9 @@
 package com.github.eikefab.libs.menu;
 
+import com.github.eikefab.libs.menu.utils.ItemBuilder;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.ItemStack;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -44,6 +46,14 @@ public class MenuContext {
         items.put(slot, item);
 
         return this;
+    }
+
+    public MenuContext add(int slot, ItemStack itemStack) {
+        return add(slot, new MenuItem(itemStack));
+    }
+
+    public MenuContext add(int slot, ItemBuilder itemBuilder) {
+        return add(slot, new MenuItem(itemBuilder));
     }
 
     public Object get(String key) {

@@ -8,7 +8,13 @@ import org.bukkit.entity.Player;
 
 public class HelloMenuCommand implements CommandExecutor {
 
+    private final HelloGlobalMenu globalMenu;
+
     private int times = 0;
+
+    public HelloMenuCommand(HelloGlobalMenu globalMenu) {
+        this.globalMenu = globalMenu;
+    }
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
@@ -16,16 +22,21 @@ public class HelloMenuCommand implements CommandExecutor {
 
         final Player player = (Player) sender;
 
-        if (args.length == 0 || !args[0].equalsIgnoreCase("page")) {
+        if (args.length == 0) {
             final HelloMenu menu = new HelloMenu();
 
             menu.open(player, ImmutableMap.of("times", ++times));
-        } else {
+        }
+
+        final String key = args[0];
+
+        if (key.equalsIgnoreCase("page")) {
             final HelloPageMenu menu = new HelloPageMenu();
 
             menu.open(player);
+        } else {
+            globalMenu.open(player);
         }
-
 
         return false;
     }
