@@ -28,6 +28,8 @@ public class MenuListener implements Listener {
 
         final Consumer<InventoryClickEvent> consumer = context.getItemConsumer(itemSlot);
 
+        if (consumer == null) return;
+
         consumer.accept(event);
     }
 
