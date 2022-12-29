@@ -97,19 +97,17 @@ public abstract class PageMenu extends Menu {
     protected abstract void nextPageItem(Player player, PageMenuContext context);
     protected abstract void previousPageItem(Player player, PageMenuContext context);
 
-    protected int currentStart(int maxIndex) {
-        return Math.min((currentPage - 1) * lines, maxIndex);
+    protected int currentStart() {
+        return Math.min((currentPage - 1) * lines, itemsCount() - 1);
     }
 
-    protected int currentEnd(int maxIndex) {
-        return Math.min((currentPage * lines), maxIndex);
+    protected int currentEnd() {
+        return Math.min((currentPage * lines), itemsCount() - 1);
     }
 
     protected <T> void fillInventory(List<T> content, PageMenuContext context, Function<T, MenuItem> function) {
-        final int maxIndex = content.size() - 1;
-
-        final int start = currentStart(maxIndex);
-        final int end = currentEnd(maxIndex);
+        final int start = currentStart();
+        final int end = currentEnd();
 
         final Iterator<T> iterator = content.subList(start, end).iterator();
 
