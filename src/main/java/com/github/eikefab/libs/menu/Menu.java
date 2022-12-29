@@ -12,7 +12,7 @@ public abstract class Menu {
     private final String title;
     private final int size;
 
-    public Menu(String title, int size) throws IllegalArgumentException {
+    public Menu(String title, int size) {
         this.title = title;
         this.size = size;
 

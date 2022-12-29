@@ -34,7 +34,10 @@ public class MenuContext {
     }
 
     protected Consumer<InventoryClickEvent> getItemConsumer(int itemSlot) {
-        return items.get(itemSlot).getClickConsumer();
+        final MenuItem menuItem = items.getOrDefault(itemSlot, null);
+
+        if (menuItem == null) return null;
+        else return menuItem.getClickConsumer();
     }
 
     public MenuContext add(int slot, MenuItem item) {
